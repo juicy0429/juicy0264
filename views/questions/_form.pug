@@ -1,9 +1,10 @@
 .form-group
-  label(for="title") Title
-  input.form-control(type="text", name="title", placeholder="What's your question?", value=question.title)
+  label(for="title") 제목
+  input.form-control(type="text", name="title", placeholder="공모전 제목을 입력해주세요.", value=question.title)
 .form-group
-  label(for="question") Question
+  label(for="contest_info") 공모 요강
   textarea.form-control(name="content", rows="5")= question.content
 .form-group
-  label(for="tags") Tags
-  input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")
+  label(for="tags") 분야
+  input.form-control(type="text", name="tags", placeholder="분야를 기입해주세요.", value=question.tags ? question.tags.join(" ") : "")
+  

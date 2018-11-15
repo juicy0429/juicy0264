@@ -9,12 +9,13 @@ block content
       input.form-control.mr-sm-2(type='text', name='term', placeholder='Search', aria-label='Search', value=term)
 
     h1.main-title 
-      | Questions
+      | 공모전 등록
+      
       if questions.total > 0
-        .small Total #{questions.total} question(s)
+        .small 총 #{questions.total} 개의 공모전이 있습니다.
 
     if questions.total <= 0 
-      .alert.alert-info No questions available yet
+      .alert.alert-info 등록되어 있는 공모전 정보가 없습니다.
     else
       .questions
         each question in questions.docs
@@ -25,4 +26,6 @@ block content
       +paginate(questions, '/questions', query)
 
     hr
-    a.btn.btn-primary(href='/questions/new') Ask Question
+    a.btn.btn-primary(href='/questions/new') 공모전 등록
+
+    

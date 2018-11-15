@@ -2,20 +2,23 @@ extends ../layout
 
 block content
   .container
-    h1.main-title Register
+    h1.main-title 회원가입
     form(action='/users', method='POST')
       .form-group
-        label(for='name') Name
+        label(for='name') 이름
         input.form-control(type='text', id='name', name='name', placeholder='Your name')
       .form-group
-        label(for='email') Email address
+        label(for='using') 회원구분(개인 or 사업자)
+        input.form-control(type='using', id='using', name='using', placeholder='개인 or 사업자')
+      .form-group
+        label(for='email') 이메일 주소
         input.form-control(type='email', id='email', name='email', placeholder='Email')
       .form-group
         label(for='password') Password
         input.form-control(type='password', id='password', name='password', placeholder='Password')
       .form-group
-        label(for='password_confirmation') Password Confirmation
+        label(for='password_confirmation') Password 확인
         input.form-control(type='password', id='password_confirmation', name='password_confirmation', placeholder='Password')
-      a.btn.btn-outline-secondary(href='/users') List
+      a.btn.btn-outline-secondary(href='/users') 뒤로
       | 
-      button.btn.btn-primary(type='submit') Register 
+      button.btn.btn-primary(type='submit') 회원가입

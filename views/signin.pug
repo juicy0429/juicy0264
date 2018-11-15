@@ -4,7 +4,7 @@ block content
   .container
     .clearfix
       form.form-signin(action='/signin', method='POST')
-        h3.form-signin-heading Signin
+        h3.form-signin-heading 로그인
         label.sr-only(for='email') Email address
         input(
           type='email', id='email', name='email', class='form-control', 
@@ -19,12 +19,12 @@ block content
           label 
             input(type="checkbox", value="remember-me")
             |
-            | Remember me
-        button.btn.btn-primary.btn-block(type='submit') Signin
+            | 아이디 기억
+        button.btn.btn-primary.btn-block(type='submit') 로그인
         div.sub 
-          a(href='/users/new') Signup
+          a(href='/users/new') 회원가입
           | 
           | /
           |
-          a(href='/reset-password') Reset Password
+          a(href='/reset-password') 비밀번호 재설정
       
