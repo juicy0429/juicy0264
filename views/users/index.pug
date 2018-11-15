@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  .container
+    h1.main-title Users
+    
+    table.table.table-hover
+      thead
+        tr
+          th Name
+          th Email
+          th Created At
+          th
+      tbody
+        // 유저의 정보 들어가있음
+        each user in users
+          tr
+            td
+              // 다른 변수의 값을 합쳐서 string making ``
+              a(href=`/users/${user._id}`)= user.name // value가 찍혀 들어감
+            td= user.email
+            //moment - 날짜 관련되서 기능을 하는 라이브러리
+            td= moment(user.createdAt).format('YYYY-MM-DD HH:mm:ss')
+            td
+              a.btn.btn-sm.btn-outline-secondary(href=`/users/${user._id}/edit`) 
+                | #[i.fa.fa-pencil] Edit
+              | 
+              a.btn.btn-sm.btn-outline-danger(href=`/users/${user._id}?_method=DELETE`)
+                | #[i.fa.fa-trash] Delete
+    a.btn.btn-primary(href='/users/new') #[i.fa.fa-plus] Register a new user
