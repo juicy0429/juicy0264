@@ -14,7 +14,7 @@ a:hover {
   background: url("/images/contest.png");
   min-height: 25em;
   color: #fff;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);}
 
 .form-actions {
   padding: 19px 20px 20px;
