@@ -2,9 +2,22 @@
   label(for="title") 제목
   input.form-control(type="text", name="title", placeholder="공모전 제목을 입력해주세요.", value=question.title)
 .form-group
-  label(for="contest_info") 공모 요강
+  label(for="content") 공모 요강
   textarea.form-control(name="content", rows="5")= question.content
 .form-group
   label(for="tags") 분야
   input.form-control(type="text", name="tags", placeholder="분야를 기입해주세요.", value=question.tags ? question.tags.join(" ") : "")
+.form-group
+  label(for="test_object") 참가 대상
+  input.form-control(type="text", name="test_object", placeholder="참가 대상을 입력해주세요.", value=question.test_object)
+.form-group
+  label(for="contest_period") 공모전 기간
+  input.form-control(type="text", name="contest_period", placeholder="공모전 기간을 입력해주세요.", value=question.contest_period)
+.form-group
+  label(for="staff") 담당자
+  input.form-control(type="text", name="staff", placeholder="담당자", value=question.staff)
+.form-group
+  label(for="tel") 연락처
+  input.form-control(type="text", name="tel", placeholder="연락처", value=question.tel)
+ 
   

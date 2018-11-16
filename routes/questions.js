@@ -64,6 +64,10 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   }
   question.title = req.body.title;
   question.content = req.body.content;
+  question.contest_period = req.body.contest_period;
+  question.test_object = req.body.test_object;
+  question.staff = req.body.staff;
+  question.tel = req.body.tel;
   question.tags = req.body.tags.split(" ").map(e => e.trim());
 
   await question.save();
@@ -84,6 +88,10 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
     author: user._id,
     content: req.body.content,
     tags: req.body.tags.split(" ").map(e => e.trim()),
+    contest_period : req.body.contest_period,
+    test_object : req.body.test_object,
+    staff : req.body.staff,
+    tel : req.body.tel
   });
   await question.save();
   req.flash('success', 'Successfully posted');

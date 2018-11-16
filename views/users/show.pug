@@ -11,9 +11,10 @@ block content
 
       dt.col-sm-3 Created At
       dd.col-sm-9= user.createdAt
-
-      dt.col-sm-3 회원구분
-      dd.col-sm-9=user.using
+     
+      if user.facebook
+      dt.col-sm-3 Facebook
+        img.img-circle(src='#{user.facebook.photo}')
 
     hr
     p
