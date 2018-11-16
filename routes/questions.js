@@ -4,6 +4,7 @@ const User = require('../models/user');
 const Answer = require('../models/answer'); 
 const catchErrors = require('../lib/async-error');
 
+
 const router = express.Router();
 
 // 동일한 코드가 users.js에도 있습니다. 이것은 나중에 수정합시다.
@@ -119,7 +120,6 @@ router.post('/:id/answers', needAuth, catchErrors(async (req, res, next) => {
   req.flash('success', 'Successfully answered');
   res.redirect(`/questions/${req.params.id}`);
 }));
-
 
 
 module.exports = router;

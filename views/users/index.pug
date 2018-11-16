@@ -10,6 +10,7 @@ block content
           th 이름
           th 이메일
           th 가입일시
+          th 회원구분
           th
       tbody
  
@@ -21,6 +22,7 @@ block content
             td= user.email
            
             td= moment(user.createdAt).format('YYYY-MM-DD HH:mm:ss')
+            td= user.using
             td
               a.btn.btn-sm.btn-outline-secondary(href=`/users/${user._id}/edit`) 
                 | #[i.fa.fa-pencil] 수정

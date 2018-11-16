@@ -14,8 +14,10 @@ function needAuth(req, res, next) {
 function validateForm(form, options) {
   var name = form.name || "";
   var email = form.email || "";
+  var using = form.using || "";
   name = name.trim();
   email = email.trim();
+  using = using.trim();
 
   if (!name) {
     return 'Name is required.';
@@ -23,6 +25,9 @@ function validateForm(form, options) {
 
   if (!email) {
     return 'Email is required.';
+  }
+  if (!using) {
+    return '회원 구분을 기입해주세요.';
   }
 
   if (!form.password && options.needPassword) {
@@ -87,6 +92,7 @@ router.put('/:id', needAuth, (req, res, next) => {
 
     user.name = req.body.name;
     user.email = req.body.email;
+    user.using = req.body.using;
     if (req.body.password) {
       user.password = req.body.password;
     }
@@ -137,6 +143,7 @@ router.post('/', (req, res, next) => {
     var newUser = new User({
       name: req.body.name,
       email: req.body.email,
+      using: req.body.using
     });
     newUser.password = req.body.password;
 
@@ -152,3 +159,4 @@ router.post('/', (req, res, next) => {
 });
 
 module.exports = router;
+

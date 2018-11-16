@@ -8,6 +8,9 @@ block content
         label(for='name') 이름
         input.form-control(type='text', id='name', name='name', placeholder='Your name', value=user.name)
       .form-group
+        label(for='using') 회원구분 (개인 or 사업자)
+        input.form-control(type='using', id='using', name='using', placeholder='회원구분', value=user.using)
+      .form-group
         label(for='email') 이메일 주소
         input.form-control(type='email', id='email', name='email', placeholder='Email', value=user.email)
       .form-group
