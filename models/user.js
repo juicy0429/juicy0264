@@ -7,17 +7,18 @@ var schema = new Schema({
   email: {type: String, required: true, index: true, unique: true, trim: true},
   using: {type: String, required: true, index: true, unique: true, trim: true},
   password: {type: String},
+  facebook: {id: String, token: String, photo: String},
   createdAt: {type: Date, default: Date.now},
-  facebook: {id: String, token: String, photo: String}
  
 }, {
   toJSON: { virtuals: true},
   toObject: {virtuals: true}
 });
+
 schema.methods.generateHash = function(password) {
   return bcrypt.hash(password, 10);
 };
-schema.methods.validatePassword = function(password_) {
+schema.methods.validatePassword = function(password) {
   return bcrypt.compare(password, this.password);
 };
 

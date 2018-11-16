@@ -25,8 +25,8 @@ block content
             td= user.using
             td
               a.btn.btn-sm.btn-outline-secondary(href=`/users/${user._id}/edit`) 
-                | #[i.fa.fa-pencil] 수정
+                | #[i.fa.fa-pencil] 개인정보 수정
               | 
               a.btn.btn-sm.btn-outline-danger(href=`/users/${user._id}?_method=DELETE`)
-                | #[i.fa.fa-trash] 삭제
+                | #[i.fa.fa-trash] 회원탈퇴
     a.btn.btn-primary(href='/users/new') #[i.fa.fa-plus] 사용자 추가

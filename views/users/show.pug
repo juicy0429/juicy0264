@@ -15,8 +15,9 @@ block content
       dd.col-sm-9= user.createdAt
      
       if user.facebook
-      dt.col-sm-3 Facebook
+      dt.col-sm-3 Facebook 
         img.img-circle(src='#{user.facebook.photo}')
+        dd.col-sm-9=user.facebook.id
 
     hr
     p

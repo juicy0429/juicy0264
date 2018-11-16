@@ -83,7 +83,7 @@ router.delete('/:id', needAuth, catchErrors(async (req, res, next) => {
 }));
 
 router.post('/', needAuth, catchErrors(async (req, res, next) => {
-  const user = req.session.user;
+  const user = req.user;
   var question = new Question({
     title: req.body.title,
     author: user._id,
