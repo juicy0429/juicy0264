@@ -15,22 +15,13 @@ block content
           type='password', id='password', name='password', class='form-control', 
           placeholder='Password', required, autofocus
         )
-        .checkbox
-          label 
-            input(type="checkbox", value="remember-me")
-            |
-            | 아이디 기억
         button.btn.btn-primary.btn-block(type='submit') 로그인
-        |
-        a.btn.btn-info.btn-lg.btn-block(href='/auth/facebook')
+        hr
+        a.btn.btn-dark.btn-block(href='/auth/facebook')
           i.fa.fa-facebook.fa-lg
           | &nbsp;
           | Signin with Facebook
-        hr
+
         div.sub 
           a(href='/users/new') 회원가입
-          | 
-          | /
-          |
-          a(href='/reset-password') 비밀번호 재설정
-      
+          

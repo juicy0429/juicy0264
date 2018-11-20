@@ -10,9 +10,8 @@ block content
 
     h1.main-title 
       | 공모전 등록
-      
       if questions.total > 0
-        .small 총 #{questions.total} 개의 공모전이 있습니다.
+        .small Total #{questions.total} 개의 공모전이 있습니다.
 
     if questions.total <= 0 
       .alert.alert-info 등록되어 있는 공모전 정보가 없습니다.
@@ -27,5 +26,3 @@ block content
 
     hr
     a.btn.btn-primary(href='/questions/new') 공모전 등록
-
-    

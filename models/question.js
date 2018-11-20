@@ -1,7 +1,6 @@
-// 몽구스를 받아서 그 스키마를 받아서 정의함
-var mongoose = require('mongoose'),
-    mongoosePaginate = require('mongoose-paginate'),
-    Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
+const Schema = mongoose.Schema;
 
 var schema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -15,13 +14,12 @@ var schema = new Schema({
   numLikes: {type: Number, default: 0},
   numAnswers: {type: Number, default: 0},
   numReads: {type: Number, default: 0},
-  createdAt: {type: Date, default: Date.now},
+  createdAt: {type: Date, default: Date.now}
 }, {
   toJSON: { virtuals: true},
   toObject: {virtuals: true}
 });
 schema.plugin(mongoosePaginate);
-// 이걸로 questions 라는 몽고디비가 생김
 var Question = mongoose.model('Question', schema);
 
 module.exports = Question;
