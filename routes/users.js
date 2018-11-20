@@ -15,6 +15,7 @@ function needAuth(req, res, next) {
 function validateForm(form, options) {
   var name = form.name || "";
   var email = form.email || "";
+  var using = form.email || "";
   name = name.trim();
   email = email.trim();
   using = using.trim();
@@ -115,6 +116,7 @@ router.post('/', catchErrors(async (req, res, next) => {
   user = new User({
     name: req.body.name,
     email: req.body.email,
+    using : req.body.using
   });
   user.password = await user.generateHash(req.body.password);
   await user.save();
