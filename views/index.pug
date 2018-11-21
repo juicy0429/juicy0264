@@ -7,8 +7,11 @@ block hero-unit
 
 block content
   .container
+    h4 빠른 검색  
+    form.form-inline.search-input-group(action='/questions', method='GET')
+      i.fa.fa-search
+      input.form-control.mr-sm-2(type='text', name='term', placeholder='Search', aria-label='Search', value=term)
     .row
-    <br/>
       .col-md-6
         h3 서비스 목적
         p 본 서비스는 각종 공모전 정보와 각종 대외활동 자료를 모아놓은 정보사이트입니다.

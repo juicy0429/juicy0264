@@ -29,6 +29,10 @@ router.post('', catchErrors(async (req, res, next) => {
     title: req.body.title,
     author: req.user._id,
     content: req.body.content,
+    tel: req.body.tel,
+    staff: req.body.staff,
+    test_object: req.body.test_object,
+    contest_period: req.body.contest.contest_period,
     tags: req.body.tags.map(e => e.trim()),
   });
   await question.save();
@@ -47,6 +51,10 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   question.title = req.body.title;
   question.content = req.body.content;
   question.tags = req.body.tags;
+  question.tel = req.body.tel;
+  question.staff = req.body.staff;
+  question.test_object = req.body.test_object;
+  question.contest_period = req.body.contest_period;
   await question.save();
   res.json(question);
 }));

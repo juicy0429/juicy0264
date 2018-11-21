@@ -4,6 +4,10 @@ const Answer = require('../models/answer');
 const catchErrors = require('../lib/async-error');
 const User = require('../models/user'); 
 
+// 새로 추가된 패키지
+const multer = require('multer');
+const fs = require('fs-extra');
+const path = require('path');
 
 module.exports = io => {
   const router = express.Router();
@@ -70,6 +74,7 @@ module.exports = io => {
     question.test_object = req.body.test_object;
     question.staff = req.body.staff;
     question.tel = req.body.tel;
+    question.img = req.body.img;
     question.tags = req.body.tags.split(" ").map(e => e.trim());
 
     await question.save();
@@ -83,12 +88,61 @@ module.exports = io => {
     res.redirect('/questions');
   }));
 
+
+  const mimetypes = {
+    "image/jpeg": "jpg",
+    "image/gif": "gif",
+    "image/png": "png"
+  };
+  const upload = multer({
+    dest: 'tmp', 
+    fileFilter: (req, file, cb) => {
+      var ext = mimetypes[file.mimetype];
+      if (!ext) {
+        return cb(new Error('Only image files are allowed!'), false);
+      }
+      cb(null, true);
+    }
+  }); // tmp라는 폴더를 미리 만들고 해야 함.
+
+  router.post('/', needAuth, 
+        upload.single('img'), // img라는 필드를 req.file로 저장함.
+        catchErrors(async (req, res, next) => {
+    var question = new Question({
+      title: req.body.title,
+      author: req.user._id,
+      content: req.body.content,
+      contest_period: req.body.contest_period,
+      test_object: req.body.test_object,
+      staff: req.body.staff,
+      tel:req.body.tel,
+      img:req.body.img,
+      tags: req.body.tags.split(" ").map(e => e.trim()),
+    });
+    if (req.file) {
+      const dest = path.join(__dirname, '../public/images/uploads/');  // 옮길 디렉토리
+      console.log("File ->", req.file); // multer의 output이 어떤 형태인지 보자.
+      const filename = req.file.filename + "." + mimetypes[req.file.mimetype];
+      await fs.move(req.file.path, dest + filename);
+      question.img = "/images/uploads/" + filename;
+    }
+    await question.save();
+    req.flash('success', 'Successfully posted');
+    res.redirect('/questions');
+  }));
+
+
   router.post('/', needAuth, catchErrors(async (req, res, next) => {
     const user = req.user;
     var question = new Question({
       title: req.body.title,
       author: user._id,
       content: req.body.content,
+      contest_period: req.body.contest_period,
+      test_object: req.body.test_object,
+      staff: req.body.staff,
+      tel:req.body.tel,
+      img:req.body.img,
       tags: req.body.tags.split(" ").map(e => e.trim()),
 
     });
