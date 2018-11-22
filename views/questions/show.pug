@@ -35,5 +35,8 @@ block content
           textarea.form-control(name="content", rows="5")
         button.btn.btn-primary(type="submit") 문의사항을 남겨주세요.
 
+  table.table.table
+    tr
+     td #{question.title}
 
   script(src='/javascripts/question_client.js')

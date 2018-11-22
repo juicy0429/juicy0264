@@ -132,7 +132,7 @@ module.exports = io => {
   }));
 
 
-  router.post('/', needAuth, catchErrors(async (req, res, next) => {
+  router.post('/:id', needAuth, catchErrors(async (req, res, next) => {
     const user = req.user;
     var question = new Question({
       title: req.body.title,
