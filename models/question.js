@@ -8,6 +8,7 @@ var schema = new Schema({
   content: {type: String, trim: true, required: true},
   contest_period: {type: String, trim: true, required: true},
   test_object: {type: String, trim: true, required: true},
+  sponser: {type: String, trim: true, required: true},
   staff: {type: String, trim: true, required: true},
   tel: {type: String, trim: true, required: true},
   tags: [String],

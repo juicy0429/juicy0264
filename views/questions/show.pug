@@ -7,7 +7,6 @@ block content
     .question.show
       if question.img
         img.img-fluid(src= question.img)
-      .content= question.content
       include _question
 
       .buttons
@@ -15,12 +14,39 @@ block content
           button.btn.btn-primary.question-like-btn(data-id=question.id) 
             span.for-loading #[i.fa.fa-spin.fa-refresh] Loading
             span #[i.fa.fa-thumbs-up] 좋아요
-          if question.author && question.author.id == currentUser.id
+          if question.author && question.author.id == currentUser.id || currentUser._id=='5bf53dee6beedd03884a59ca'
             | 
             a.btn.btn-outline-secondary(href=`/questions/${question.id}/edit`) 수정
             | 
             a.btn.btn-outline-danger.need-confirm-btn(href=`/questions/${question.id}?_method=delete`) 삭제
-      
+          <hr/>
+          table.table.table
+            tr
+              th 공모전 이름
+              td #{question.title}
+            tr
+              th 분야
+              td #{question.tags}
+            tr
+              th 주최
+              td #{question.sponser}
+            tr
+              th 공모전 모집요강
+              td #{question.content}
+            tr
+              th 공모전 참가대상
+              td #{question.test_object}
+            tr
+              th 공모전 기간
+              td #{question.contest_period}
+            tr
+              th 담당자
+              td #{question.staff}
+            tr
+              th 연락처
+              td #{question.tel}  
+          <hr/>  
+          
     if question.numAnswers > 0
       hr
       h3 #{question.numAnswers} 문의사항(s)
@@ -35,8 +61,6 @@ block content
           textarea.form-control(name="content", rows="5")
         button.btn.btn-primary(type="submit") 문의사항을 남겨주세요.
 
-  table.table.table
-    tr
-     td #{question.title}
+
 
   script(src='/javascripts/question_client.js')

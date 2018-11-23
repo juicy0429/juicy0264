@@ -72,6 +72,7 @@ module.exports = io => {
     question.content = req.body.content;
     question.contest_period = req.body.contest_period;
     question.test_object = req.body.test_object;
+    question.sponser = req.body.sponser;
     question.staff = req.body.staff;
     question.tel = req.body.tel;
     question.img = req.body.img;
@@ -114,6 +115,7 @@ module.exports = io => {
       content: req.body.content,
       contest_period: req.body.contest_period,
       test_object: req.body.test_object,
+      sponser: req.body.sponser,
       staff: req.body.staff,
       tel:req.body.tel,
       img:req.body.img,
@@ -140,6 +142,7 @@ module.exports = io => {
       content: req.body.content,
       contest_period: req.body.contest_period,
       test_object: req.body.test_object,
+      sponser: req.body.sponser,
       staff: req.body.staff,
       tel:req.body.tel,
       img:req.body.img,

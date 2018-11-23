@@ -30,6 +30,7 @@ router.post('', catchErrors(async (req, res, next) => {
     author: req.user._id,
     content: req.body.content,
     tel: req.body.tel,
+    sponser: req.body.sponser,
     staff: req.body.staff,
     test_object: req.body.test_object,
     contest_period: req.body.contest.contest_period,
@@ -52,6 +53,7 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   question.content = req.body.content;
   question.tags = req.body.tags;
   question.tel = req.body.tel;
+  question.sponser= req.body.sponser;
   question.staff = req.body.staff;
   question.test_object = req.body.test_object;
   question.contest_period = req.body.contest_period;
