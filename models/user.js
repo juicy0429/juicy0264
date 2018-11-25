@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 
 var schema = new Schema({
   name: {type: String, required: true, trim: true},
-  email: {type: String, required: true, index: true, unique: true, trim: true},  password: {type: String},
+  email: {type: String, required: true, index: true, unique: true, trim: true},  
+  password: {type: String},
   using: {type: String, required: true, trim: true},
   facebook: {id: String, token: String, photo: String},
   createdAt: {type: Date, default: Date.now}
