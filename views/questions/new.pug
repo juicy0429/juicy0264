@@ -5,6 +5,7 @@ block content
     h1.main-title 새로운 공모전 등록
     form(action="/questions", method="POST", enctype="multipart/form-data" )
       include _form
+      .g-recaptcha(data_sitekey="6Le3CYAUAAAAAG7QuSpjy4ShVD0hMBckSC3AhKLD")
       button.btn.btn-outline-primary(type="submit") 글 작성
 
     

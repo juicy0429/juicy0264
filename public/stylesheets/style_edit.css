@@ -203,4 +203,35 @@ dd{
     color: #bbb;
     cursor: default; }
 
+.show .answer {
+  position: relative;
+  margin-bottom: 1em; }
+  .show .answer .dislike-badge {
+    text-align: center;
+    padding-top:4em;
+    position: absolute; }
+    .show .answer .dislike-badge .button {
+          font-size: 0.8em; }
+      .show .answer .card-body {
+        padding-left: 4em; }
+      .show .answer .content {
+        margin-bottom: 0.5em;
+        color: #888; }
+    
+    .question-dislike-btn, .answer-dislike-btn {
+      cursor: pointer; }
+      .question-dislike-btn .for-loading, .answer-dislike-btn .for-loading {
+        display: none; }
+      .question-dislike-btn.loading, .answer-dislike-btn.loading {
+        filter: opacity(30%);
+        cursor: wait; }
+        .question-dislike-btn.loading > span, .answer-dislike-btn.loading > span {
+          display: none; }
+        .question-dislike-btn.loading .for-loading, .answer-dislike-btn.loading .for-loading {
+          display: inline-block; }
+      .question-dislike-btn.disabled, .answer-dislike-btn.disabled {
+        color: #bbb;
+        cursor: default; }
+        
+
 /*# sourceMappingURL=style.css.map */

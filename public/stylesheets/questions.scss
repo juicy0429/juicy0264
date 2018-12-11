@@ -58,6 +58,16 @@
         font-size: 0.8em;
       }
     }
+  .answer {
+    position: relative;
+    .dislike-badge {
+      text-align: center;
+      padding: 0.5em;
+      position: absolute;
+      .button {
+        font-size: 0.8em;
+      }
+    }  
     .card-body{
       padding-left: 4em;
     }
@@ -72,6 +82,10 @@
 .question-like-btn, .answer-like-btn {
   .for-loading {display: none;}
   cursor: pointer; 
+
+  .question-dislike-btn, .answer-dislike-btn {
+    .for-loading {display: none;}
+    cursor: pointer;   
 
   &.loading {
     & > span {display: none;}

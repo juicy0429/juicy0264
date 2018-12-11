@@ -1,7 +1,8 @@
 const express = require('express');
 const Question = require('../../models/question'); 
 const Answer = require('../../models/answer'); 
-const LikeLog = require('../../models/like-log'); 
+const LikeLog = require('../../models/like-log');
+const disLikeLog = require('../../models/dislike-log');  
 const catchErrors = require('../../lib/async-error');
 
 const router = express.Router();
@@ -49,4 +50,36 @@ router.use((err, req, res, next) => {
   });
 });
 
+// disLike for Question
+router.post('/questions/:id/dislike', catchErrors(async (req, res, next) => {
+  const question = await Question.findById(req.params.id);
+  if (!question) {
+    return next({status: 404, msg: 'Not exist question'});
+  }
+  var dislikeLog = await disLikeLog.findOne({author: req.user._id, question: question._id});
+  if (!dislikeLog) {
+    question.numdisLikes++;
+    await Promise.all([
+      question.save(),
+      disLikeLog.create({author: req.user._id, question: question._id})
+    ]);
+  }
+  return res.json(question);
+}));
+
+// disLike for Answer
+router.post('/answers/:id/dislike', catchErrors(async (req, res, next) => {
+  const answer = await Answer.findById(req.params.id);
+  answer.numdisdisLikes++;
+  await answer.save();
+  return res.json(answer);
+}));
+
+router.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.json({
+    status: err.status,
+    msg: err.msg || err
+  });
+});
 module.exports = router;

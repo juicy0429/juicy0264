@@ -14,6 +14,9 @@ block content
           button.btn.btn-primary.question-like-btn(data-id=question.id) 
             span.for-loading #[i.fa.fa-spin.fa-refresh] Loading
             span #[i.fa.fa-thumbs-up] 좋아요
+          button.btn.btn-primary.question-dislike-btn(data-id=question.id) 
+            span.for-loading #[i.fa.fa-spin.fa-refresh] Loading
+            span #[i.fa.fa-thumbs-down] 싫어요
           if question.author && question.author.id == currentUser.id || currentUser._id=='5bf53dee6beedd03884a59ca'
             | 
             a.btn.btn-outline-secondary(href=`/questions/${question.id}/edit`) 수정

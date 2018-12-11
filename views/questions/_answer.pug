@@ -7,6 +7,14 @@
         i.fa.fa-thumbs-up
         | 
         | Like
+  .numbers.dislike-badge
+    .number
+      span.number.num-dislikes= answer.numLikes
+    .button
+      a.dislike.answer-dislike-btn(href='#', data-id=answer.id)
+        i.fa.fa-thumbs-down
+        | 
+        | disLike
 
   .card-body
     .content= answer.content

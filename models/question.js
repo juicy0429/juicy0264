@@ -13,6 +13,7 @@ var schema = new Schema({
   tel: {type: String, trim: true, required: true},
   tags: [String],
   numLikes: {type: Number, default: 0},
+  numdisLikes: {type: Number, default: 0},  
   numAnswers: {type: Number, default: 0},
   numReads: {type: Number, default: 0},
   img: {type: String},
